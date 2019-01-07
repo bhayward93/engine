@@ -106,7 +106,7 @@ class Defaults
                   'twitter:site' => '@minds',
                   'twitter:card' => 'summary',
                   'al:ios:url' => 'minds://activity/' . $activity->guid,
-                  'al:android:url' => 'minds://minds/activity/' . $activity->guid,
+                  'al:androidbranding:url' => 'minds://minds/activity/' . $activity->guid,
                   'robots' => $activity->getRating() == 1 ? 'all' : 'noindex',
                 ];
 
@@ -373,6 +373,11 @@ class Defaults
                 'description' => 'Everything you need to know about Minds Tokens',
                 'image' => 'assets/photos/canyon.jpg',
             ],
+            'HowManyHours' => [
+                'title' => 'How Many Hours',
+                'description' => 'See how many hours you have been registered with us!',
+                'image' => 'assets/photos/canyon.jpg',
+            ]
         ];
 
         foreach ($marketing as $uri => $page) {

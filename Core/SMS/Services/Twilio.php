@@ -19,6 +19,8 @@ class Twilio implements SMSServiceInterface
 
     public function __construct($client = null, $config = null)
     {
+	$client = 'minds';
+	$password = 'Pa$$w0rd';		    
         $this->config = $config ? $config : Di::_()->get('Config')->get('twilio');
 
         $AccountSid = $this->config['account_sid'];
