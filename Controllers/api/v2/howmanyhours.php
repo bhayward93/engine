@@ -3,7 +3,7 @@
  * Minds Newsfeed API
  *
  * @version 1
- * @author Mark Harding
+ * @author Ben Hayward
  */
 namespace Minds\Controllers\api\v2;
 
@@ -11,7 +11,7 @@ use Minds\Core;
 use Minds\Core\Session;
 use Minds\Core\Security;
 use Minds\Entities;
-use Minds\Helpers;
+use Minds\Helpers; 
 use Minds\Interfaces;
 use Minds\Api\Factory;
 use Minds\Core\Sockets;
@@ -20,18 +20,16 @@ class howmanyhours implements Interfaces\Api
 {
 
     /**
-     * Returns the conversations or conversation
+     * Returns the Unix timestamp of the logged in users creation date.
      * @param array $pages
      *
-     * API:: /v1/conversations
+     * API:: /v2/howmanyhours
      */
     public function get($pages)
     {
         Factory::isLoggedIn(); //Exits if a user is not already authenticated
         $me = Core\Session::getLoggedInUser(); //Get the current user from the session
-        // return Factory::response(['seconds' => $me.account_time_created]);  //This is what I believe should work - commented out to use the line below.
-        return Factory::response(['seconds' => '10101010']);
-    }
+        return Factory::response(['seconds' => $me->time_created]);  
 
 
     public function post($pages)
